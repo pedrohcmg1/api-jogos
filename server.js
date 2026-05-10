@@ -73,7 +73,7 @@ app.post("/jogos", (req, res) => {
     const { nome, tipo, nota, review } = req.body;
 
     const novoJogo = {
-        id: jogos.length + 1,
+        id: proximoId++,
         nome,
         tipo,
         nota,
@@ -91,6 +91,12 @@ app.put("/jogos/:id", (req, res) => {
     const id = parseInt(req.params.id);
 
     const { nome, tipo, nota, review } = req.body;
+
+    if (!nome || !tipo || nota === undefined || !review) {
+    return res.status(400).json({
+        mensagem: "Todos os campos são obrigatórios"
+    });
+}
 
     const jogo = jogos.find(j => j.id === id);
 
