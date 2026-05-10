@@ -25,6 +25,8 @@ let jogos = [
     }
 ];
 
+let proximoId = 3;
+
 app.post("/login", (req, res) => {
 
     const { email, password } = req.body;
@@ -71,6 +73,12 @@ app.get("/jogos/:id", (req, res) => {
 app.post("/jogos", (req, res) => {
 
     const { nome, tipo, nota, review } = req.body;
+
+    if (!nome || !tipo || nota === undefined || !review) {
+    return res.status(400).json({
+        mensagem: "Todos os campos são obrigatórios"
+    });
+}
 
     const novoJogo = {
         id: proximoId++,
