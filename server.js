@@ -4,6 +4,8 @@ const { v4: uuidv4 } = require("uuid");
 
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 app.use(express.json());
 
 let jogos = [
@@ -129,6 +131,6 @@ app.get("/", (req, res) => {
     res.send("API funcionando!");
 });
 
-app.listen(3000, () => {
-    console.log("Servidor rodando na porta 3000");
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
