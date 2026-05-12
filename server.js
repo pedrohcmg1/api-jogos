@@ -18,10 +18,10 @@ let jogos = [
     },
     {
         id: 2,
-        nome: "FIFA 23",
-        tipo: "Esporte",
-        nota: 7,
-        review: "Bom para jogar com amigos."
+        nome: "God Of War",
+        tipo: "Aventura",
+        nota: 9,
+        review: "Uma excelente experiência de jogo."
     }
 ];
 
